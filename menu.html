@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMCC EBANK-MAIN MENU</title>
+    <style>
+        .b1{
+            background-color:blue;
+            color:white;
+            border:solid black 4px;
+            font-size:x-large;
+        }
+        .main_div
+        {
+            width:400px; margin:0px auto; background-color:blue; color:white; border:solid black 5px;
+        }
+        .cash
+        {
+            border-top:solid black 2px;
+            border-left:0px;
+            border-right:0px;
+            text-align:center;
+            margin: 0px;
+            padding:10px;
+            background-color: orange;"
+        }
+        .input_text
+        {
+            background-color: #CCCCCC;
+            border:solid orange 2px;
+            font-size:x-large !important;
+        }
+        .cash1
+        {
+            border-top:solid black 4px;
+            border-bottom:solid black 2px;
+            border-left:0px;
+            border-right:0px;
+            padding:10px;
+        }
+        .depost
+        {
+            width:530px; margin:0px auto; background-color:blue; color:white; border:solid black 5px;
+        }
+    </style>
+<link href="assets/css/slick.css">
+</head>
+<body>
+<div style="width:100%;font-size: x-large;">
+    <form>
+        <div class="main_div" >
+            <div style="text-align:center; background-color:orange; color:black;padding:10px; padding-top:5px; font-size:xx-large;border-bottom:solid black 4px;">BMCC E-BANK</div>
+            <div style="border-top:solid black 0px;border-left:0px; border-right:0px;; text-align:center; margin: 0px; padding:10px; background-color: orange; float:absolute;">
+                <div style="text-align:left;"><input class="b1"  type="button" value="SET/GET BALANCE" onclick="location.href='balance.html'" /></div>
+                <div style="text-align:left;"><input class="b1"  type="button" value="MAKE A DEPOSIT" onclick="location.href='deposit.html'" /></div>
+                <div style="text-align:left;"><input class="b1"  type="button" value="GET CASH" onclick="location.href='cash.html'"/></div>
+            </div>
+        </div>
+    </form>
+</div>
+<section>
+    <div style="width:100%;font-size: x-large;">
+        <form>
+            <div class="depost">
+                <div style="text-align:center; width:510px; background-color:orange; color:black;padding:10px; padding-top:5px; font-size:xx-large;">BMCC E-BANK</div>
+
+                <div style="border:solid black 4px;border-left:0px; border-right:0px; padding:10px;">
+                    <div style="">
+                        <label style="width:250px; display:block; float:left;">BALANCE:</label>
+                        <input id="balance" type="text" id="out1" size="10" class="input_text"/>
+                    </div>
+                </div>
+
+                <div style="border-top:solid black 2px; text-align:center; margin: 0px; padding:10px; background-color: orange;">
+                    <input  type="button" class="b1" value="SET NEW BALANCE" onclick="setBalance" />
+                    <input  type="button" class="b1" value="GET BALANCE"        onclick="getBalance" />
+                    <input  type="button" class="b1" value="MAIN MENU" onclick="location.href='menu.html'"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section>
+    <div style="width:100%;font-size: x-large;">
+        <form>
+            <div class="depost" >
+                <div style="text-align:center; width:510px; background-color:orange; color:black;padding:10px; padding-top:5px; font-size:xx-large;">BMCC E-BANK</div>
+                <div style="border-top:solid 4px black; border-bottom:solid black 4px; border-left:0px; border-right:0px;; padding:10px;">
+                    <label style="width:250px; display:block; float:left;">DEPOSIT AMOUNT:</label>
+                    <input id="amount" type="text" size="10" class="input_text"/>
+                </div>
+                <div style="background-color:orange;padding:2px;"></div>
+
+                <div class="cash1">
+                    <div style="">
+                        <label style="width:250px; display:block; float:left;">CHARGE:</label>
+                        <input id="charge" type="text"  value="10" size="10" readonly class="input_text" /> </div>
+                    <div style="">    <label style="width:250px; display:block; float:left;">NEW BALANCE:</label>
+                        <input id="balance1" type="text"  size="10" readonly class="input_text" /> </div>
+                </div>
+
+                <div class="cash">
+                    <input class="b1" type="button" value="MAKE DEPOSIT" onclick="depositTransaction();"/>
+                    <input class="b1" type="button" value="CLEAR"  />
+                    <input class="b1" type="button" value="MAIN MENU" onclick="location.href='menu.html'"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section>
+    <div style="width:100%;font-size: x-large;">
+        <form>
+            <div class="depost">
+                <div style="text-align:center; width:510px; background-color:orange; color:black;padding:10px; padding-top:5px; font-size:xx-large;">BMCC E-BANK</div>
+                <div style="border-top:solid 4px black; border-bottom:solid black 4px; border-left:0px; border-right:0px;; padding:10px;">
+                    <label style="width:250px; display:block; float:left;">CASH AMOUNT:</label>
+                    <input type="text" id="amount1" size="10" style="font-size:x-large;border:solid orange 2px;" />
+                </div>
+
+                <div style="background-color:orange;padding:2px;"></div>
+
+                <div class="cash1" >
+                    <div style="">
+                        <label style="width:250px; display:block; float:left;">CHARGE:</label>
+                        <input id="charge1" type="text" value="25" size="10" readonly class="input_text"/>
+                    </div>
+                    <div style="">
+                        <label style="width:250px; display:block; float:left;">NEW BALANCE:</label>
+                        <input id="balance2" type="text" size="10" readonly class="input_text"/>
+                    </div>
+                </div>
+                <div class="cash" >
+                    <input class="b1" type="button" value="GET CASH" onclick=""/>
+                    <input class="b1" type="button" value="CLEAR"  />
+                    <input class="b1" type="button" value="MAIN MENU" onclick="location.href='menu.html'" />
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<div class="your-class" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+    <div>
+        <div class="s">
+
+        </div>
+    </div>
+    <div><h3>2</h3></div>
+    <div><h3>3</h3></div>
+    <div><h3>4</h3></div>
+    <div><h3>5</h3></div>
+    <div><h3>6</h3></div>
+</div>
+<section>
+
+</section>
+<script type="text/javascript" src="assets/js/slick.min.js"></script>
+<script type="text/javascript">
+
+
+    $('.center').slick({
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+
+
+
+    function setBalance()
+    {
+        var bal=document.getElementById("balance");
+        localStorage.setItem("balance",bal.value);
+    }
+    function getBalance()
+    {
+        var value=localStorage.getItem("balance");
+        if (value==null) {value="1000";localStorage.setItem("balance","1000")};
+        document.getElementByID("balance").value=value;
+    }
+
+    function setInitial()
+    {
+        var value=localStorage.getItem("balance1");
+        if (value==null) {localStorage.setItem("balance1","1000")};
+    }
+    setInitial();
+    function depositTransaction()
+    {
+        var balance =document.getElementById("balance1");
+        var charge_d  =document.getElementById("charge");
+        var amount_d  =document.getElementById("amount");
+        var bal_d=localStorage.getItem("balance1");
+        bal_d=parseFloat(bal_d)-parseFloat(charge_d.value)+parseFloat(amount_d.value);
+        balance.value=bal;
+        localStorage.setItem("balance1_d",bal_d);
+    }
+
+    function setInitial()
+    {
+        var value=localStorage.getItem("balance2");
+        if (value==null) {localStorage.setItem("balance2","1000")};
+    }
+    setInitial();
+    function cashTransaction()
+    {
+        var balance2=document.getElementById("balance2");
+        var charge_c=document.getElementById("charge1");
+        var amount1_c=document.getElementById("amount1");
+        var bal_c=localStorage.getItem("balance2");
+        bal_c=parseFloat(bal_c)-parseFloat(charge_c.value)-parseFloat(amount1_c.value);
+        document.getElementById("balance2").value=bal_c;
+        localStorage.setItem("balance2",bal_c);
+    }
+
+</script>
+</body>
+</html>
